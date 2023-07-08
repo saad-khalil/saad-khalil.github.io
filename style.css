@@ -86,6 +86,36 @@ a{
     position: relative;
     padding-left: 10px;
 }
+.section-3{
+    padding-top: 10vh;
+    width: 70%;
+}
+
+.section-3 h2{
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.section-3 p{
+    font-size: 1.1rem;
+    padding-bottom: 10px;
+    margin:0;
+}
+
+.section-3 a{
+    display: block;
+    padding: 5px;
+    font-size: 1.2rem;
+    padding-left: 0;
+    width: 100px;
+}
+/* animations / utilities */
+.section-3 a:hover{
+    font-size: 1.3rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
 /* media queres */
 @media(max-width:780px){
@@ -97,6 +127,11 @@ a{
         padding-top: 5rem;
     }
     .section-2{
+        padding: 0;
+        padding-left: 1.5rem;
+        padding-top: 2rem;
+    }
+    .section-3{
         padding: 0;
         padding-left: 1.5rem;
         padding-top: 2rem;
