@@ -1,0 +1,55 @@
+.paragraph{
+
+  display: flex;
+
+  font-size: 2rem ;
+
+  line-height: 1;
+
+  padding: 40px;
+
+  max-width: 75%;
+
+  color: black;
+
+  flex-wrap: wrap;
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%,-25%);
+
+
+  @media (min-width: 768px) { // equivalent to md: in Tailwind
+    font-size: 7rem; // equivalent to text-7xl
+  }
+
+  @media (min-width: 1024px) { // equivalent to lg: in Tailwind
+    font-size: 9rem; // equivalent to text-9xl
+  }
+
+
+  .word{
+
+    position: relative;
+
+    margin-right: 12px;
+
+    margin-top: 12px;
+
+    .shadow{
+
+      position: absolute;
+
+      opacity: 20%;
+
+    }
+
+  }
+
+
+}
+
