@@ -2,7 +2,7 @@ import {Image} from "@nextui-org/react";
 
 export default function Home() {
   return (
-    <main className="bg-white">
+    <main className="bg-gray-200">
         <div>
             <h1 className="text-black text-5xl md:text-7xl lg:text-9xl font-bold heading text-center hover:text-fuchsia-400">[software
                 — </h1>
