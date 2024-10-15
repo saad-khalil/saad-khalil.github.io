@@ -30,9 +30,9 @@ export default function Home() {
 
     return (
         <main className="bg-white">
-            <AnimatePresence mode='wait'>
-                {isLoading && <Preloader/>}
-            </AnimatePresence>
+            {/*<AnimatePresence mode='wait'>*/}
+            {/*    {isLoading && <Preloader/>}*/}
+            {/*</AnimatePresence>*/}
             <Landing t1={"Software Developer"} t2={"Software Developer"}/>
             <Page/>
             <Contact/>

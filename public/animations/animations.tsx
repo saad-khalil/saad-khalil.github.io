@@ -1,9 +1,11 @@
 import gsap from "gsap";
 import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 export const animatePageIn = () => {
+    console.log("starting in animation")
     const transitionElement = document.getElementById("transition-element");
 
     if (transitionElement) {
+        console.log("animation wrapper exists in")
         const tl = gsap.timeline();
 
         tl.set(transitionElement, {
@@ -26,10 +28,12 @@ export const animatePageIn = () => {
 };
 
 
-export const animatePageOut = (href: string, router:    AppRouterInstance) => {
+export const animatePageOut = () => {
+    console.log("starting out animation")
     const animationWrapper = document.getElementById("transition-element");
 
     if (animationWrapper) {
+        console.log("animation wrapper exists out")
         const tl = gsap.timeline();
 
         tl.set(animationWrapper, {
@@ -42,9 +46,6 @@ export const animatePageOut = (href: string, router:    AppRouterInstance) => {
             .to(animationWrapper, {
                 xPercent: 0,
                 duration: 0.8,
-                onComplete: () => {
-                    router.push(href);
-                },
             })
             .to(
                 animationWrapper,

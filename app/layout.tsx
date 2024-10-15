@@ -4,6 +4,7 @@ import "./globals.css";
 import {NextUIProvider} from "@nextui-org/react";
 import {Providers} from "@/app/provider";
 import Header from "@/public/Header/Header";
+import React from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
