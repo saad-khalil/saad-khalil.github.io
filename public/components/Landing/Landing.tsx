@@ -9,7 +9,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
-export default function Landing() {
+// @ts-ignore
+export default function Landing({t1, t2}) {
 
 
 
@@ -95,23 +96,15 @@ export default function Landing() {
 
         <main className={styles.main}>
 
-            <Image
 
-                src="background.jpg"
-
-                fill={true}
-
-                alt="background"
-
-            />
 
             <div className={styles.sliderContainer}>
 
                 <div ref={slider} className={styles.slider}>
 
-                    <p ref={firstText}>Software Developer -</p>
+                    <p ref={firstText}>{t1}</p>
 
-                    <p ref={secondText}>Software Developer -</p>
+                    <p ref={secondText}>{t2}</p>
 
                 </div>
 

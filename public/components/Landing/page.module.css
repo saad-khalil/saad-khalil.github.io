@@ -1,7 +1,7 @@
 .main{
     position: relative;
     display: flex;
-    height: 100vh;
+    height: 30vh;
     overflow: hidden;
 }
 
@@ -11,7 +11,7 @@
 
 .sliderContainer{
     position: absolute;
-    top: calc(100vh - 350px);
+    top: calc(30vh - 350px);
 }
 
 .slider{
@@ -22,14 +22,16 @@
 .slider p{
     position: relative;
     margin: 0px;
-    color: white;
+    color: #FF2F00;
     font-size: 230px;
     font-weight: 500;
     padding-right: 50px;
+    font-family: 'PP Neue Montreal', sans-serif;
 }
 
 .slider p:nth-of-type(2){
     position: absolute;
     left: 100%;
     top: 0;
+    font-family: 'PP Neue Montreal', sans-serif;
 }

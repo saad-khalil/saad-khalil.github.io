@@ -5,6 +5,7 @@ import {useRef, useState} from "react";
 import gsap from 'gsap';
 import { motion } from 'framer-motion';
 import { disperse } from './anim';
+import Link from "next/link";
 
 
 export default function Contact() {
@@ -49,17 +50,39 @@ export default function Contact() {
                 </div>
 
 
-                <TextDipserse setBackground={setBackground}>
-                    <p>+31 639863378</p>
-                </TextDipserse>
+                <div className={styles.introLine}>
 
-                <TextDipserse setBackground={setBackground}>
-                    <p>Email</p>
-                </TextDipserse>
+                    <p>+31 </p>
 
-                <TextDipserse setBackground={setBackground}>
-                    <p>&nbsp;&nbsp;Linkedin</p>
-                </TextDipserse>
+                    <p>639863378</p>
+
+
+                </div>
+
+                <div className={styles.introLine} >
+
+                    <Link href="">
+                        <p>Email</p>
+                    </Link>
+
+                    <Link href="">
+                        <p>&nbsp;&nbsp;&nbsp;Linkedin</p>
+                    </Link>
+
+                </div>
+
+
+                {/*<TextDipserse setBackground={setBackground}>*/}
+                {/*    <p>+31 639863378</p>*/}
+                {/*</TextDipserse>*/}
+
+                {/*<TextDipserse setBackground={setBackground}>*/}
+                {/*    <p>Email</p>*/}
+                {/*</TextDipserse>*/}
+
+                {/*<TextDipserse setBackground={setBackground}>*/}
+                {/*    <p>&nbsp;&nbsp;Linkedin</p>*/}
+                {/*</TextDipserse>*/}
 
 
             </div>

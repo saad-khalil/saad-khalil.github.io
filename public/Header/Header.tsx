@@ -1,30 +1,45 @@
-'use client'
-import styles from './style.module.scss'
-import { useState } from 'react';
-import {AnimatePresence} from "framer-motion";
-import Stairs from '../components/Stairs/Stairs';
-import Menu from '../components/Menu/Menu';
+'use client';
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion';
+
+import styles from './style.module.scss';
+import Button from './Button/Button';
+import Nav from '@/public/Header/Nav/Nav'
 
 
-export default function Header() {
+const menu = {
+    open: {
+        width: "300px",
+        height: "400px",
+        top: "-25px",
+        right: "-25px",
+        transition: { duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1]}
+    },
+    closed: {
+        width: "100px",
+        height: "40px",
+        top: "0px",
+        right: "0px",
+        transition: { duration: 0.75, delay: 0.35, type: "tween", ease: [0.76, 0, 0.24, 1]}
+    }
+}
 
+export default function Index() {
     const [isActive, setIsActive] = useState(false);
 
     return (
-        <>
-            <div onClick={() => {setIsActive(!isActive)}} className={styles.button}>
-                <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
-            </div>
-            <AnimatePresence mode="wait">
-
-                {isActive &&
-                    <>
-                        <Stairs/>
-                        <Menu closeMenu={() => {setIsActive(false)}}/>
-                    </>}
-
-
-            </AnimatePresence>
-        </>
+        <div className={styles.header}>
+            <motion.div
+                className={styles.menu}
+                variants={menu}
+                animate={isActive ? "open" : "closed"}
+                initial="closed"
+            >
+                <AnimatePresence>
+                    {isActive && <Nav/>}
+                </AnimatePresence>
+            </motion.div>
+            <Button isActive={isActive} toggleMenu={() => {setIsActive(!isActive)}}/>
+        </div>
     )
 }

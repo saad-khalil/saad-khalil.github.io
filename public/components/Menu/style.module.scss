@@ -6,25 +6,57 @@
   width: 100%;
   flex-direction: column;
   justify-content: space-between;
-  .header{
+  .button{
+    position: fixed;
+    right: 0px;
+    margin: 20px;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    cursor: pointer;
     display: flex;
-    justify-content: flex-end;
-    padding: 20px;
-    svg{
-      cursor: pointer;
-      width: 100px;
-      height: 100px;
-      path{
-        transition: color 0.5s;
-      }
+    align-items: center;
+    justify-content: center;
+  }
 
-      &:hover{
-        path{
-          stroke: #8767F6;
-        }
-      }
+  .burger{
+    width: 100%;
+    &::after, &::before{
+      content: "";
+      display: block;
+      height: 1px;
+      width: 40%;
+      margin: auto;
+      background-color: #000000;
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    &::after{
+      top: -5px;
+    }
+
+    &::before{
+      top: 5px;
     }
   }
+
+  .burgerActive{
+
+    &::after{
+      transform: rotate(45deg);
+      top: -1px;
+    }
+
+    &::before{
+      transform: rotate(-45deg);
+      top: 0px;
+    }
+
+  }
+
   .body{
     position: absolute;
     left: 50%;
@@ -68,7 +100,7 @@
       pointer-events: none;
       will-change: top;
       .inner{
-        background-color: #8767F6;
+        background-color: #FF2F00;
         position: absolute;
         white-space: nowrap;
         height: 100%;
@@ -104,12 +136,12 @@
             }
           }
           p{
-            color: black;
+            color: #ffffff;
           }
         }
       }
       .background{
-        background-color: #8767F6;
+        background-color: #FF2F00;
         position: absolute;
         height: 100%;
         width: 100%;

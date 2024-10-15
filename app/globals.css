@@ -26,7 +26,6 @@ body {
     rgb(var(--background-start-rgb));
   margin: 0;
   overflow: hidden;
-  cursor: wait;
 
 }
 
