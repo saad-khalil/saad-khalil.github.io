@@ -12,7 +12,7 @@ function sleep(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export const TransitionLink: React.FC<TransitionLinkProps> = ({
+export const FancyLink: React.FC<TransitionLinkProps> = ({
                                                                   children,
                                                                   href,
                                                                   ...props
