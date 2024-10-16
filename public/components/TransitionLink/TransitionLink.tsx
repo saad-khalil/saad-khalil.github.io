@@ -13,7 +13,7 @@ export default function TransitionLink({
     const router = useRouter();
 
     const handleClick = () => {
-        animatePageOut(href, router);
+        animatePageOut();
     };
 
     return (

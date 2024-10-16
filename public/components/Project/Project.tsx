@@ -29,7 +29,7 @@ export default function index({index, title, description, url, setModal}) {
 
         const transitionElement = document.createElement('div');
         transitionElement.id = 'transition-element';
-        transitionElement.className = 'w-screen h-screen bg-[#FF2F00] z-100 fixed top-0 left-0';
+        transitionElement.className = 'w-screen h-screen bg-[#FF2F00] z-50 fixed top-0 left-0';
         document.body.appendChild(transitionElement);
         console.log('Transition element added:', transitionElement);
 

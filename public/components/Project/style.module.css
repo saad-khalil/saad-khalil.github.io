@@ -1,6 +1,6 @@
 .project{
     display: flex;
-    width: 100%;
+    width: 100vw;
     justify-content: space-between;
     align-items: center;
     padding: 50px 100px 50px 100px;
@@ -30,6 +30,7 @@
     font-weight: 400;
     transition: all 0.4s;
     color: black;
+    font-family: 'PP Neue Montreal', sans-serif
 }
 
 .project p{

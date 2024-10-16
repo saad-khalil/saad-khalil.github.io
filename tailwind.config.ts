@@ -15,6 +15,10 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        cormorantGaramond: ["var(--font-cormorant-garamond)", "serif"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
+      },
     },
   },
   darkMode: "class",

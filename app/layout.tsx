@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {Cormorant_Garamond, Inter, Poppins} from "next/font/google";
 import "./globals.css";
 import {NextUIProvider} from "@nextui-org/react";
 import {Providers} from "@/app/provider";
 import Header from "@/public/Header/Header";
 import React from "react";
-const inter = Inter({ subsets: ["latin"] });
+const cormorantGaramond = Cormorant_Garamond({
+    subsets: ["latin"],
+    variable: "--font-cormorant-garamond",
+    weight: ["400"],
+})
+
+const poppins = Poppins({
+    subsets: ["latin"],
+    variable: "--font-poppins",
+    weight: ["400", "600"],
+})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${cormorantGaramond.variable} ${poppins.variable}`}>
         <Providers>
             <Header/>
             {children}

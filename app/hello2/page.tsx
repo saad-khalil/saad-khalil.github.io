@@ -2,12 +2,11 @@
 import {motion} from "framer-motion";
 import Landing from "@/public/components/Landing/Landing";
 import withTransition from "@/public/components/Preloader/withTransition";
+import MaskPage from "@/public/components/MaskPage/MaskPage";
 
 const Home = () => {
     return (
-        <main className="bg-white">
-            <Landing t1={"Asset Management"} t2={"Asset Management"}/>
-        </main>
+        <MaskPage/>
 
     )
 }

@@ -61,11 +61,11 @@ export default function Contact() {
 
                 <div className={styles.introLine} >
 
-                    <Link href="">
+                    <Link href="mailto:work.saadkhalil@gmail.com">
                         <p>Email</p>
                     </Link>
 
-                    <Link href="">
+                    <Link href="https://www.linkedin.com/in/s-khalil/">
                         <p>&nbsp;&nbsp;&nbsp;Linkedin</p>
                     </Link>
 
