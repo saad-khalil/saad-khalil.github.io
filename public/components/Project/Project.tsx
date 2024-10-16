@@ -20,16 +20,19 @@ export default function index({index, title, description, url, setModal}) {
 
     const [isClicked, setIsClicked] = useState(false);
 
+    const transitionElement = document.createElement('div');
+    transitionElement.id = 'transition-element';
+    transitionElement.className = 'w-screen h-screen bg-[#FF2F00] z-50 fixed top-0 left-0';
+
     const handleTransition = async (
+
 
     )=> {
         setModal({active: false, index})
         setIsClicked(true);
 
 
-        const transitionElement = document.createElement('div');
-        transitionElement.id = 'transition-element';
-        transitionElement.className = 'w-screen h-screen bg-[#FF2F00] z-50 fixed top-0 left-0';
+
         document.body.appendChild(transitionElement);
         console.log('Transition element added:', transitionElement);
 

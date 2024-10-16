@@ -31,10 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cormorantGaramond.variable} ${poppins.variable}`}>
-        <Providers>
             <Header/>
             {children}
-        </Providers>
       </body>
     </html>
   );
