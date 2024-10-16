@@ -31,6 +31,7 @@ export const FancyLink: React.FC<TransitionLinkProps> = ({
         router.push(href);
         await sleep(500);
 
+
         body?.classList.remove("page-transition");
     };
 
