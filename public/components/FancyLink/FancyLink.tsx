@@ -2,7 +2,7 @@
 import Link, {LinkProps} from "next/link"
 import React, {ReactNode} from "react"
 import {useRouter} from "next/navigation";
-import {animatePageIn} from "@/public/animations/animations";
+import {animatePageIn, animatePageOut} from "@/public/animations/animations";
 
 
 interface FancyLinkProps extends LinkProps{
@@ -26,10 +26,10 @@ export const FancyLink = ({ children, href, ...props}: FancyLinkProps) => {
 
         const transitionElement = document.createElement('div');
         transitionElement.id = 'transition-element';
-        transitionElement.className = 'w-screen h-screen bg-[#FF2F00] z-100 fixed top-0 left-0';
+        transitionElement.className = 'w-screen h-screen bg-[#FF2F00] z-50 fixed top-0 left-0';
         document.body.appendChild(transitionElement);
 
-        animatePageIn()
+        animatePageOut()
 
         await sleep(500)
 
@@ -37,6 +37,7 @@ export const FancyLink = ({ children, href, ...props}: FancyLinkProps) => {
 
         await sleep(500)
 
+        animatePageIn()
 
 
     }
