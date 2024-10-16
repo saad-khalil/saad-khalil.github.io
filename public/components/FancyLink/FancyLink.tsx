@@ -1,48 +1,42 @@
-"use client"
-import Link, {LinkProps} from "next/link"
-import React, {ReactNode} from "react"
-import {useRouter} from "next/navigation";
-import {animatePageIn, animatePageOut} from "@/public/animations/animations";
+"use client";
+import Link, { LinkProps } from "next/link";
+import React from "react";
+import { useRouter } from "next/navigation";
 
-
-interface FancyLinkProps extends LinkProps{
-    children: ReactNode
+interface TransitionLinkProps extends LinkProps {
+    children: React.ReactNode;
     href: string;
-
 }
 
 function sleep(ms: number): Promise<void> {
-    return new Promise((resolve) => setTimeout(resolve,ms))
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export const FancyLink = ({ children, href, ...props}: FancyLinkProps) => {
-    const router = useRouter()
+export const TransitionLink: React.FC<TransitionLinkProps> = ({
+                                                                  children,
+                                                                  href,
+                                                                  ...props
+                                                              }) => {
+    const router = useRouter();
 
     const handleTransition = async (
-        e : React.MouseEvent<HTMLAnchorElement, MouseEvent>
-    )=> {
+        e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    ) => {
+        e.preventDefault();
+        const body = document.querySelector("body");
 
-        e.preventDefault()
+        body?.classList.add("page-transition");
 
-        const transitionElement = document.createElement('div');
-        transitionElement.id = 'transition-element';
-        transitionElement.className = 'w-screen h-screen bg-[#FF2F00] z-50 fixed top-0 left-0';
-        document.body.appendChild(transitionElement);
-
-        animatePageOut()
-
-        await sleep(500)
-
+        await sleep(500);
         router.push(href);
+        await sleep(500);
 
-        await sleep(500)
+        body?.classList.remove("page-transition");
+    };
 
-        animatePageIn()
-
-
-    }
-
-    return <Link href={href}{...props}
-    onClick={handleTransition}
-    > {children} </Link>
-}
+    return (
+        <Link {...props} href={href} onClick={handleTransition}>
+            {children}
+        </Link>
+    );
+};
