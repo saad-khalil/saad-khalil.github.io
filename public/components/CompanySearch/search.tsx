@@ -2,24 +2,10 @@
 
 import React, {useState, useEffect, useCallback} from 'react';
 import { useFuzzySearchList, Highlight } from '@nozbe/microfuzz/react';
-import { getCompanies } from '@/public/lib/data';
-
-interface Company {
-    name: string;
-}
+import { companies, type Company } from '@/data/companies';
 
 const Search = () => {
     const [query, setQuery] = useState('');
-    const [companies, setCompanies] = useState<Company[]>([]);
-
-    useEffect(() => {
-        const fetchCompanies = async () => {
-            const fetchedCompanies = await getCompanies();
-            setCompanies(fetchedCompanies);
-        };
-
-        fetchCompanies();
-    }, []);
 
     const getText = useCallback((company: Company) => [company.name], [])
     // @ts-ignore
