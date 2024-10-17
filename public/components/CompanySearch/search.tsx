@@ -34,7 +34,7 @@ const Search = () => {
         getText,
         // @ts-ignore
         mapResultItem,
-        strategy: "off"
+        strategy: "smart"
     })
 
 
