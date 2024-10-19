@@ -1,11 +1,53 @@
 "use client"
 
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useMemo} from 'react';
 import { useFuzzySearchList, Highlight } from '@nozbe/microfuzz/react';
 import { companies, type Company } from '@/data/companies';
 
+
+interface SearchIndex {
+    [key: string]: Company[];
+}
+
+
+
 const Search = () => {
     const [query, setQuery] = useState('');
+
+    const searchIndex = useMemo(() => {
+        console.log('Building search index...');
+        const index: SearchIndex = {};
+
+        companies.forEach(company => {
+            const words = company.name.toLowerCase().split(' ');
+            words.forEach(word => {
+                for (let i = 1; i <= Math.min(1, word.length); i++) {
+                    const prefix = word.slice(0, i);
+                    if (!index[prefix]) {
+                        index[prefix] = [];
+                    }
+                    if (!index[prefix].includes(company)) {
+                        index[prefix].push(company);
+                    }
+                }
+            });
+        });
+        return index;
+    }, []);
+
+    const preFilteredCompanies = useMemo(() => {
+        if (!query) return companies.slice(0, 100);
+
+        const searchTerm = query.toLowerCase();
+        if (searchTerm.length <= 1) {
+            return searchIndex[searchTerm] || [];
+        }
+
+        const firstThreeChars = searchTerm.slice(0, 1);
+        return searchIndex[firstThreeChars] || companies;
+    }, [query, searchIndex]);
+
+
 
     const getText = useCallback((company: Company) => [company.name], [])
     // @ts-ignore
@@ -13,16 +55,22 @@ const Search = () => {
         return { item, highlightRanges }
     }, [])
 
-    // @ts-ignore
+
     const filteredCompanies = useFuzzySearchList({
-        list: companies,
+        list: preFilteredCompanies,
         queryText: query,
         getText,
         // @ts-ignore
         mapResultItem,
         strategy: "smart"
-    })
+    });
 
+    // Format the results
+    const displayCompanies = query ? filteredCompanies :
+        preFilteredCompanies.slice(0, 100).map(item => ({
+            item,
+            highlightRanges: []
+        }));
 
     return (
         <div className="min-h-screen bg-white text-black">
@@ -53,7 +101,8 @@ const Search = () => {
                         ))}
                     </div>
                 </div>
-                <h1 className="text-2xl font-bold mb-4 text-black ">{filteredCompanies.length} fetched out of {companies.length}</h1>
+                <h1 className="text-2xl font-bold mb-4 text-black ">{displayCompanies.length} fetched
+                    {!query ? ' (showing first 100)' : ` out of ${companies.length}`}</h1>
             </main>
         </div>
     )
