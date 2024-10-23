@@ -30,7 +30,7 @@ export default function Home() {
 
 
     return (
-        <main className="bg-white flex flex-col">
+        <main className="bg-white">
             <AnimatePresence mode='wait'>
                 {isLoading && <Preloader/>}
             </AnimatePresence>
