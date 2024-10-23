@@ -30,7 +30,7 @@ export default function RootLayout({
     if(pathname === "/"){
   return (<html lang="en">
       <body className={`${cormorantGaramond.variable} ${poppins.variable}`}>
-      <Header/>
+      {/*<Header/>*/}
       {children}
       </body>
       </html>

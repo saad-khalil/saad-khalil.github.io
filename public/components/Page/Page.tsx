@@ -8,32 +8,32 @@ import { useState } from 'react';
 
 const projects = [
     {
-        title: "Asset Mngmt",
+        title: "Returnable Asset Management",
         src: "1.png",
-        color: "#000000",
-        description: "Nuxt3 TS SpringBoot Python PostgresSQL",
-        url : "/asset-management"
+        color: "#EFE8D3",
+        description: "Grolsch & Topsector Logistiek",
+        url : "/"
     },
     {
-        title: "Office Studio",
+        title: "Bank Transcation Analysis",
         src: "2.png",
         color: "#8C8C8C",
-        description: "hello",
-        url : "/hello2"
+        description: "Topicus & Fyndoo",
+        url : "/"
     },
     {
-        title: "Locomotive",
-        src: "3.jpg",
-        color: "#EFE8D3",
-        description: "hello",
-        url : "/hello3"
+        title: "Idioma",
+        src: "3.png",
+        color: "#000",
+        description: "Universtity of Twente",
+        url : "/"
     },
     {
-        title: "Silencio",
-        src: "4.jpg",
+        title: "Restaurant Search",
+        src: "4.png",
         color: "#706D63",
-        description: "hello",
-        url : "/hello4"
+        description: "Just Eat Takeaway",
+        url : "/"
 
     }
 ]
